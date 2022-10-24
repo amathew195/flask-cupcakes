@@ -1,7 +1,8 @@
 """Flask app for Cupcakes"""
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from models import db, connect_db, Cupcake, DEFAULT_IMG_URL
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///cupcakes'
@@ -92,3 +93,9 @@ def delete_cupcake(cupcake_id):
     response = {'deleted': cupcake_id}
 
     return jsonify(response)
+
+@app.get("/")
+def generate_cupcakes_list():
+    """Renders HTML to returns cupcakes list and add form"""
+
+    return render_template("base.html")
