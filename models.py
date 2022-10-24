@@ -3,6 +3,7 @@
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
+DEFAULT_IMG_URL = "https://tinyurl.com/demo-cupcake"
 
 
 class Cupcake(db.Model):
@@ -10,22 +11,28 @@ class Cupcake(db.Model):
 
     __tablename__ = 'cupcakes'
 
-    id = db.Column(db.Integer,
-                   primary_key=True,
-                   autoincrement=True
-                   )
-    flavor = db.Column(db.String(25),
-                       nullable=False
-                       )
-    size = db.Column(db.String(25),
-                     nullable=False,
-                     )
-    rating = db.Column(db.Integer(),
-                       nullable=False)
-    image = db.Column(db.Text,
-                      nullable=False,
-                      default="https://tinyurl.com/demo-cupcake"
-                      )
+    id = db.Column(
+        db.Integer,
+        primary_key=True,
+        autoincrement=True
+    )
+    flavor = db.Column(
+        db.String(25),
+        nullable=False
+    )
+    size = db.Column(
+        db.String(25),
+        nullable=False,
+    )
+    rating = db.Column(
+        db.Integer(),
+        nullable=False
+    )
+    image = db.Column(
+        db.Text,
+        nullable=False,
+        default=DEFAULT_IMG_URL
+    )
 
     def serialize(self):
         """Serialize to dictionary"""
@@ -37,6 +44,7 @@ class Cupcake(db.Model):
             "rating": self.rating,
             "image": self.image,
         }
+
 
 def connect_db(app):
     """Connect to database."""
