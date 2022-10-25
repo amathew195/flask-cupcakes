@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="/static/style.css">
 </head>
+
 <body>
   <h1>Cupcakes</h1>
   <ul id="cupcakes">
   </ul>
   <h1>Add A New Cupcake</h1>
-  <form action="/api/cupcakes" method="POST" id="addcupcakeform">
+  <form id="addcupcakeform">
     <label for="">Flavor</label><input type="text" name="flavor" id="flavor">
     <label for="">Size</label><input type="text" name="size" id="size">
     <label for="">Rating</label><input type="text" name="rating" id="rating">
     <label for="">Image</label><input type="text" name="image" id="image">
     <button type="submit" id="addButton">Add</button>
   </form>
-<script src="http://unpkg.com/jquery"></script>
-<script src="https://unpkg.com/axios/dist/axios.js"></script>
-<script src="/static/app.js"></script>
+  <script src="http://unpkg.com/jquery"></script>
+  <script src="https://unpkg.com/axios/dist/axios.js"></script>
+  <script src="/static/app.js"></script>
 </body>
+
 </html>
